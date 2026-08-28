@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WorkOnClick - Agencia especializada en Diseño Web de Alto Rendimiento, Posicionamiento SEO Estratégico y Marketing Digital para escalar tus ventas.">
+  <title>WorkOnClick | Marketing Digital, Creación Web & SEO</title>
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #99ea15;          /* Verde lima vibrante estilo Growify */
+      --primary-dark: #7ec70c;
+      --primary-glow: rgba(153, 234, 21, 0.25);
+      --dark-bg: #09110d;          /* Fondo oscuro profundo */
+      --card-bg: #121c17;          /* Fondo tarjetas oscuras */
+      --card-border: #1f3028;
+      --light-bg: #f8fafc;
+      --dark-text: #0b1410;
+      --text-muted: #83958c;
+      --text-body: #4b5563;
+      --white: #ffffff;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-body);
+      background-color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, .brand-font {
+      font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark-text);
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-lime {
+      background-color: var(--primary);
+      color: var(--dark-bg);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    .btn-lime:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(153, 234, 21, 0.4);
+    }
+
+    .btn-dark {
+      background-color: var(--dark-bg);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background-color: #17241e;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #d1d5db;
+      background: transparent;
+      color: var(--dark-text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--dark-text);
+      background: var(--light-bg);
+    }
+
+    /* Top Bar */
+    .topbar {
+      background: #060b08;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #14221a;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar-info {
+      display: flex;
+      gap: 1.8rem;
+    }
+
+    .topbar-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .topbar-info i {
+      color: var(--primary);
+    }
+
+    .topbar-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .topbar-socials a {
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .topbar-socials a:hover {
+      color: var(--primary);
+    }
+
+    /* Main Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--dark-text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #10b981;
+      background: linear-gradient(135deg, #10b981 0%, #84cc16 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #334155;
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover {
+      color: #10b981;
+    }
+
+    /* Hero LeadGen */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #09120e 0%, #0d1a14 50%, #070e0b 100%);
+      color: var(--white);
+      padding: 5rem 0 6rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(153,234,21,0.12) 0%, rgba(0,0,0,0) 70%);
+      top: -100px;
+      left: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(153, 234, 21, 0.12);
+      color: var(--primary);
+      border: 1px solid rgba(153, 234, 21, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 3.3rem;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #9cb3a8;
+      margin-bottom: 2.5rem;
+      max-width: 540px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      border-top: 1px solid #1a2a22;
+      padding-top: 2rem;
+    }
+
+    .metric-box h3 {
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-box h3 span {
+      color: var(--primary);
+    }
+
+    .metric-box p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Growify LeadGen Form Card */
+    .leadgen-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .leadgen-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 45px 45px;
+      border-color: transparent transparent #09120e transparent;
+    }
+
+    .form-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .form-header p {
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-header h3 {
+      color: var(--white);
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .service-selection-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .chip-radio {
+      display: none;
+    }
+
+    .chip-label {
+      padding: 0.55rem 1.1rem;
+      background: #192720;
+      color: #cbd5e1;
+      border: 1px solid #283e33;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .chip-radio:checked + .chip-label {
+      background: var(--primary);
+      color: var(--dark-bg);
+      border-color: var(--primary);
+      font-weight: 700;
+    }
+
+    .chip-label:hover {
+      background: #22352b;
+    }
+
+    .input-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .input-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .custom-input {
+      width: 100%;
+      background: #182620;
+      border: 1px solid #2a3f34;
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .custom-input::placeholder {
+      color: #64748b;
+    }
+
+    .custom-input:focus {
+      border-color: var(--primary);
+      background: #1c2d26;
+      box-shadow: 0 0 0 2px var(--primary-glow);
+    }
+
+    textarea.custom-input {
+      resize: none;
+      height: 90px;
+    }
+
+    .form-btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: var(--dark-bg);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.95rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 0.5rem;
+    }
+
+    .form-btn-submit:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Clients Bar */
+    .clients-bar {
+      background: var(--light-bg);
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .clients-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0.65;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .client-logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #10b981;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .service-card:hover {
+      border-color: #10b981;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.06);
+    }
+
+    .service-icon-box {
+      width: 60px;
+      height: 60px;
+      background: #f0fdf4;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #10b981;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      margin-bottom: 1.8rem;
+    }
+
+    .service-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-cta {
+      color: #10b981;
+      gap: 0.7rem;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 6rem 0;
+      background: var(--light-bg);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      width: 100%;
+    }
+
+    .experience-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--dark-bg);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius-md);
+      border-left: 5px solid var(--primary);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .experience-badge h4 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .experience-badge p {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .about-features-list {
+      margin: 2rem 0;
+    }
+
+    .about-feature-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-feature-item i {
+      color: #10b981;
+      font-size: 1.2rem;
+      margin-top: 0.2rem;
+    }
+
+    .about-feature-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 6rem 0;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .portfolio-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid #edf2f7;
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+    }
+
+    .portfolio-thumbnail {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portfolio-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .portfolio-card:hover .portfolio-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-body {
+      padding: 1.8rem;
+    }
+
+    .portfolio-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #10b981;
+      text-transform: uppercase;
+    }
+
+    .portfolio-body h3 {
+      font-size: 1.25rem;
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 6rem 0;
+      background: #09120e;
+      color: var(--white);
+    }
+
+    .pricing-section .section-title {
+      color: var(--white);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 15px 40px rgba(153, 234, 21, 0.15);
+      transform: scale(1.03);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--dark-bg);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 1.2rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+    }
+
+    .price-value {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin: 1rem 0 1.5rem;
+    }
+
+    .price-value span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-features {
+      margin: 2rem 0;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 0.9rem;
+    }
+
+    .pricing-features i {
+      color: var(--primary);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .faq-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      background: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--dark-text);
+    }
+
+    .faq-question i {
+      transition: var(--transition);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.2rem;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+      color: #10b981;
+    }
+
+    /* Footer */
+    footer {
+      background: #060c09;
+      color: #94a3b8;
+      padding: 5rem 0 2rem;
+      border-top: 1px solid #14221a;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 1.15rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-col ul a {
+      transition: var(--transition);
+    }
+
+    .footer-col ul a:hover {
+      color: var(--primary);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #15241c;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid, .portfolio-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .pricing-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        display: none;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.4rem;
+      }
+      .hero-metrics {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .input-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div class="topbar-info">
+        <span><i class="fa-regular fa-envelope"></i> info@workonclick.com</span>
+        <span><i class="fa-solid fa-clock"></i> Lun - Vie: 9:00 AM - 6:00 PM</span>
+      </div>
+      <div class="topbar-socials">
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-layer-group" style="color: #10b981;"></i> Work<span>OnClick</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#hero" class="btn btn-lime">Cotizar Proyecto <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: HERO CON FORMULARIO INTEGRADO (LEADGEN DEMO) -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      
+      <!-- Columna Izquierda: Información -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <i class="fa-solid fa-bolt"></i> Tu Socio Estratégico Digital
+        </div>
+        <h1 class="hero-title">
+          Impulsamos tu negocio con <span>Web, SEO & Marketing</span>
+        </h1>
+        <p class="hero-desc">
+          Creamos ecosistemas digitales de alta conversión: sitios web optimizados, posicionamiento orgánico en Google y campañas publicitarias que multiplican tus ventas.
+        </p>
+
+        <!-- Métricas con clase counter para animación -->
+        <div class="hero-metrics">
+          <div class="metric-box">
+            <h3>+<span class="counter" data-target="140">0</span><span>+</span></h3>
+            <p>Páginas Desarrolladas</p>
+          </div>
+          <div class="metric-box">
+            <h3><span class="counter" data-target="350">0</span><span>%</span></h3>
+            <p>Aumento en Leads</p>
+          </div>
+          <div class="metric-box">
+            <h3><span class="counter" data-target="99">0</span><span>%</span></h3>
+            <p>Satisfacción de Clientes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario Growify Dark -->
+      <div class="hero-right">
+        <div class="leadgen-card">
+          <div class="form-header">
+            <p>Cotización Rápida</p>
+            <h3>Solicita tu Propuesta</h3>
+          </div>
+
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Configuración de Web3Forms -->
+            <input type="hidden" name="access_key" value="b9a16194-e578-4d93-9953-362dac533d74">
+            <input type="hidden" name="from_name" value="WorkOnClick Leads">
+            <input type="hidden" name="subject" value="🚀 Nueva Solicitud de Propuesta - workonclick.com">
+            <input type="hidden" name="replyto" value="@email">
+            <input type="checkbox" name="botcheck" style="display: none;">
+
+            <!-- Selección de Servicio con Chips -->
+            <span class="service-selection-title">¿Qué servicio necesitas?</span>
+            <div class="chips-group">
+              <input type="radio" name="Servicio Solicitado" value="Diseño Web" id="srv_web" class="chip-radio" checked>
+              <label for="srv_web" class="chip-label">Diseño Web</label>
+
+              <input type="radio" name="Servicio Solicitado" value="Posicionamiento SEO" id="srv_seo" class="chip-radio">
+              <label for="srv_seo" class="chip-label">Posicionamiento SEO</label>
+
+              <input type="radio" name="Servicio Solicitado" value="Google / Meta Ads" id="srv_ads" class="chip-radio">
+              <label for="srv_ads" class="chip-label">Google / Meta Ads</label>
+
+              <input type="radio" name="Servicio Solicitado" value="E-Commerce" id="srv_ecom" class="chip-radio">
+              <label for="srv_ecom" class="chip-label">E-Commerce</label>
+
+              <input type="radio" name="Servicio Solicitado" value="Auditoría SEO" id="srv_audit" class="chip-radio">
+              <label for="srv_audit" class="chip-label">Auditoría SEO</label>
+            </div>
+
+            <!-- Campos Nombre y Email -->
+            <div class="input-grid-2">
+              <div class="input-group">
+                <label>Nombre Completo</label>
+                <input type="text" name="Nombre Completo" class="custom-input" placeholder="Ej: Gerald Reverón" required>
+              </div>
+              <div class="input-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" class="custom-input" placeholder="tu@empresa.com" required>
+              </div>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="input-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" name="WhatsApp o Telefono" class="custom-input" placeholder="+54 9 11 0000-0000" required>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="input-group">
+              <label>Cuéntanos sobre tu proyecto o web actual</label>
+              <textarea name="Detalles del Proyecto" class="custom-input" placeholder="Escribe tus objetivos, presupuesto estimado o enlaces..."></textarea>
+            </div>
+
+            <!-- Mensaje de confirmación en la web -->
+            <div id="form-result" style="display: none; padding: 12px; margin-bottom: 12px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px;"></div>
+
+            <!-- Botón Submit -->
+            <button type="submit" id="btn-submit-form" class="form-btn-submit">
+              Enviar Solicitud <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clients Bar -->
+  <div class="clients-bar">
+    <div class="container clients-wrapper">
+      <div class="client-logo"><i class="fa-brands fa-google"></i> Google Partner</div>
+      <div class="client-logo"><i class="fa-brands fa-meta"></i> Meta Ads</div>
+      <div class="client-logo"><i class="fa-brands fa-wordpress"></i> WordPress Pro</div>
+      <div class="client-logo"><i class="fa-brands fa-shopify"></i> Shopify Partner</div>
+      <div class="client-logo"><i class="fa-brands fa-hubspot"></i> HubSpot Inbound</div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: SERVICIOS -->
+  <section id="servicios" class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestras Especialidades</span>
+        <h2 class="section-title">Soluciones digitales que impulsan el crecimiento real</h2>
+      </div>
+
+      <div class="services-grid">
+        <!-- Servicio 1 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>Creación de Páginas Web</h3>
+            <p>Desarrollamos sitios web modernos, rápidos y 100% responsivos. Diseñados estratégicamente para convertir visitantes en clientes reales.</p>
+          </div>
+          <a href="#hero" class="service-cta">Cotizar Sitio Web <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h3>Posicionamiento SEO</h3>
+            <p>Optimizamos la arquitectura de tu sitio, contenido y enlaces para posicionarte en los primeros resultados orgánicos de Google de forma continua.</p>
+          </div>
+          <a href="#hero" class="service-cta">Auditar mi Posición <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Marketing Digital & Ads</h3>
+            <p>Campañas de alto rendimiento en Google Ads, Facebook e Instagram Ads enfocadas en conseguir clientes potenciales al menor costo por adquisición.</p>
+          </div>
+          <a href="#hero" class="service-cta">Crear Campaña <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h3>Tiendas Online (E-Commerce)</h3>
+            <p>Plataformas de venta online escalables en WooCommerce y Shopify con pasarelas de pago seguras y experiencia de compra optimizada.</p>
+          </div>
+          <a href="#hero" class="service-cta">Lanzar mi Tienda <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Servicio 5 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Embudos de Venta (Funnels)</h3>
+            <p>Diseño de Landing Pages específicas y automatización de correos electrónicos para maximizar las conversiones de tus campañas publicitarias.</p>
+          </div>
+          <a href="#hero" class="service-cta">Optimizar Conversión <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Servicio 6 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h3>Branding & Identidad Visual</h3>
+            <p>Construcción de marcas sólidas: diseño de logotipos, manuales de marca y piezas gráficas consistentes para tus canales digitales.</p>
+          </div>
+          <a href="#hero" class="service-cta">Diseñar Marca <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: ABOUT US -->
+  <section id="nosotros" class="about-section">
+    <div class="container about-grid">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Consultores de marketing y desarrollo web">
+        <div class="experience-badge">
+          <h4>8+</h4>
+          <p>Años de experiencia creando soluciones digitales exitosas</p>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="section-tag">Sobre WorkOnClick</span>
+        <h2 class="section-title">No solo hacemos páginas bonitas, construimos negocios rentables</h2>
+        <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+          Combinamos tecnología avanzada, diseño centrado en el usuario y estrategias analíticas de marketing para que cada proyecto genere un retorno de inversión comprobable.
+        </p>
+
+        <div class="about-features-list">
+          <div class="about-feature-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h4>Estrategias Basadas en Datos</h4>
+              <p style="font-size: 0.9rem;">Analizamos métricas clave para optimizar constantemente el rendimiento de tus campañas y tu web.</p>
+            </div>
+          </div>
+          <div class="about-feature-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h4>Velocidad y Código Limpio</h4>
+              <p style="font-size: 0.9rem;">Estructuras web optimizadas con tiempos de carga inferiores a 2 segundos para enamorar a Google y a tus usuarios.</p>
+            </div>
+          </div>
+          <div class="about-feature-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h4>Acompañamiento y Soporte Continuo</h4>
+              <p style="font-size: 0.9rem;">Trabajamos como tu departamento digital externo con comunicación transparente y reportes claros.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#hero" class="btn btn-dark">Hablar con un Especialista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: PORTAFOLIO -->
+  <section id="portafolio" class="portfolio-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Casos de Éxito</span>
+        <h2 class="section-title">Resultados reales para marcas que confían en nosotros</h2>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Caso 1 -->
+        <div class="portfolio-card">
+          <div class="portfolio-thumbnail">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Caso de Estudio E-Commerce">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">E-Commerce & SEO</span>
+            <h3>Tienda de Indumentaria Urbana</h3>
+            <p style="font-size: 0.9rem;">Rediseño completo de plataforma y estrategia SEO, logrando un aumento del +280% en ventas orgánicas.</p>
+          </div>
+        </div>
+
+        <!-- Caso 2 -->
+        <div class="portfolio-card">
+          <div class="portfolio-thumbnail">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Caso de Estudio Consultora">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Diseño Web & Ads</span>
+            <h3>Consultora Financiera Internacional</h3>
+            <p style="font-size: 0.9rem;">Desarrollo de sitio corporativo y campañas en Google Search con una reducción del 40% en costo por lead.</p>
+          </div>
+        </div>
+
+        <!-- Caso 3 -->
+        <div class="portfolio-card">
+          <div class="portfolio-thumbnail">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" alt="Caso de Estudio Academia Online">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Marketing & Funnels</span>
+            <h3>Academia de Cursos Digitales</h3>
+            <p style="font-size: 0.9rem;">Embudo de ventas automatizado y pauta en Meta Ads logrando más de 1,200 alumnos registrados en 3 meses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: PLANES DE PRECIO -->
+  <section id="precios" class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--primary);">Inversión Transparente</span>
+        <h2 class="section-title">Planes adaptados a la etapa de tu negocio</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan 1 -->
+        <div class="pricing-card">
+          <div>
+            <h3>Web Starter</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal para profesionales y pequeños negocios que inician.</p>
+            <div class="price-value">$299 <span>/ pago único</span></div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Sitio Web One-Page / Landing</li>
+              <li><i class="fa-solid fa-check"></i> Diseño Responsivo (Móvil/PC)</li>
+              <li><i class="fa-solid fa-check"></i> Integración con WhatsApp</li>
+              <li><i class="fa-solid fa-check"></i> Certificado SSL Gratuito</li>
+              <li><i class="fa-solid fa-check"></i> Optimización Básica SEO</li>
+            </ul>
+          </div>
+          <a href="#hero" class="btn btn-outline" style="color: white; border-color: #334155; width: 100%;">Elegir Starter</a>
+        </div>
+
+        <!-- Plan 2 (Destacado) -->
+        <div class="pricing-card featured">
+          <div class="popular-tag">Más Recomendado</div>
+          <div>
+            <h3 style="color: var(--primary);">Growth & SEO</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Para empresas que buscan posicionarse y captar clientes.</p>
+            <div class="price-value">$599 <span>/ proyecto</span></div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Web Multi-Página Corporativa</li>
+              <li><i class="fa-solid fa-check"></i> Auditoría & Estrategia SEO On-Page</li>
+              <li><i class="fa-solid fa-check"></i> Integración CRM y Formularios Dinámicos</li>
+              <li><i class="fa-solid fa-check"></i> Velocidad Ultrarrápida (Core Web Vitals)</li>
+              <li><i class="fa-solid fa-check"></i> Blog Autoadministrable</li>
+              <li><i class="fa-solid fa-check"></i> 1 Mes de Soporte Prioritario</li>
+            </ul>
+          </div>
+          <a href="#hero" class="btn btn-lime" style="width: 100%;">Elegir Plan Growth</a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="pricing-card">
+          <div>
+            <h3>Marketing Scale</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Ecosistema completo: E-Commerce y Campañas Ads.</p>
+            <div class="price-value">$990 <span>/ integral</span></div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Tienda Online / Plataforma a Medida</li>
+              <li><i class="fa-solid fa-check"></i> Configuración de Google & Meta Ads</li>
+              <li><i class="fa-solid fa-check"></i> Embudos de Conversión Avanzados</li>
+              <li><i class="fa-solid fa-check"></i> Seguimiento con Pixel y GA4</li>
+              <li><i class="fa-solid fa-check"></i> Estrategia SEO Completa</li>
+              <li><i class="fa-solid fa-check"></i> 3 Meses de Mantenimiento Incluido</li>
+            </ul>
+          </div>
+          <a href="#hero" class="btn btn-outline" style="color: white; border-color: #334155; width: 100%;">Elegir Scale</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: PREGUNTAS FRECUENTES -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dudas Frecuentes</span>
+        <h2 class="section-title">¿Tienes preguntas? Te ayudamos a resolverlas</h2>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-item active">
+          <div class="faq-question">
+            ¿Cuánto tiempo toma tener mi sitio web listo?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Para sitios corporativos y landing pages estándar, el tiempo de entrega promedio es de 5 a 10 días hábiles una vez recibida la información requerida. Para proyectos más complejos o tiendas virtuales, puede tomar entre 2 a 3 semanas.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿El sitio web será autoadministrable?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            ¡Sí, totalmente! Diseñamos nuestras páginas para que puedas editar textos, cambiar imágenes o añadir productos y entradas de blog sin necesidad de saber código de programación.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Cuándo comenzaré a ver resultados con el SEO?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            El posicionamiento orgánico es un proceso progresivo y sostenible. Los primeros avances significativos en palabras clave y aumento de tráfico suelen apreciarse entre el segundo y tercer mes de trabajo continuado.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Incluyen el hosting y el dominio?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Podemos ayudarte a configurar y vincular tu hosting y dominio existentes (como tu servidor en BanaHosting) o incluir el paquete completo listo para publicar con certificado SSL de seguridad.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="color: white; margin-bottom: 1.2rem;">
+            <i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> Work<span style="color: var(--primary); -webkit-text-fill-color: var(--primary);">OnClick</span>
+          </div>
+          <p style="font-size: 0.95rem; line-height: 1.7;">
+            Agencia líder en soluciones integrales de marketing digital, desarrollo web enfocado a ventas y posicionamiento SEO. Escalamos la facturación de tu marca en internet.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Diseño Web Profesional</a></li>
+            <li><a href="#servicios">Posicionamiento SEO</a></li>
+            <li><a href="#servicios">Campañas Google & Meta Ads</a></li>
+            <li><a href="#servicios">Tiendas E-Commerce</a></li>
+            <li><a href="#servicios">Auditoría Digital</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Enlaces Rápidos</h4>
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#nosotros">Sobre Nosotros</a></li>
+            <li><a href="#portafolio">Casos de Éxito</a></li>
+            <li><a href="#precios">Precios y Planes</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto Directo</h4>
+          <p style="margin-bottom: 0.6rem;"><i class="fa-regular fa-envelope" style="color: var(--primary);"></i> info@workonclick.com</p>
+          <p style="margin-bottom: 0.6rem;"><i class="fa-solid fa-globe" style="color: var(--primary);"></i> workonclick.com</p>
+          <p><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Sitio 100% Seguro con SSL</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 WorkOnClick. Todos los derechos reservados.</p>
+        <p style="color: var(--text-muted);">Desarrollado con alto rendimiento y SEO integrado.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script interactivo para el Acordeón FAQ -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        const isActive = parent.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(child => {
+          child.classList.remove('active');
+        });
+        
+        if (!isActive) {
+          parent.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <script>
+// 1. Script para el envío AJAX del formulario
+const form = document.getElementById('contactForm');
+const result = document.getElementById('form-result');
+const submitBtn = document.getElementById('btn-submit-form');
+
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Enviando...';
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+    .then(async (response) => {
+      let res = await response.json();
+      if (response.status == 200) {
+        result.style.display = "block";
+        result.style.backgroundColor = "rgba(153, 234, 21, 0.15)";
+        result.style.color = "#99ea15";
+        result.style.border = "1px solid #99ea15";
+        result.innerHTML = "¡Solicitud enviada con éxito! Te contactaremos a la brevedad 🚀";
+        form.reset();
+      } else {
+        result.style.display = "block";
+        result.style.backgroundColor = "rgba(239, 68, 68, 0.15)";
+        result.style.color = "#ef4444";
+        result.style.border = "1px solid #ef4444";
+        result.innerHTML = res.message || "Ocurrió un error al enviar. Por favor contáctanos por WhatsApp.";
+      }
+    })
+    .catch(error => {
+      result.style.display = "block";
+      result.style.backgroundColor = "rgba(239, 68, 68, 0.15)";
+      result.style.color = "#ef4444";
+      result.innerHTML = "Error de conexión. Inténtalo nuevamente.";
+    })
+    .then(function() {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Enviar Solicitud <i class="fa-solid fa-arrow-up-right-from-square"></i>';
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 6000);
+    });
+  });
+}
+
+// 2. Script para la animación progresiva de números
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.hero-metrics .counter');
+  const metricsContainer = document.querySelector('.hero-metrics');
+  let animated = false;
+
+  const runCounter = () => {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const duration = 1800;
+      const startTime = performance.now();
+
+      const updateCount = (currentTime) => {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        const easeOutQuad = 1 - (1 - progress) * (1 - progress);
+        const currentVal = Math.floor(easeOutQuad * target);
+
+        counter.innerText = currentVal;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        runCounter();
+        animated = true;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (metricsContainer) {
+    observer.observe(metricsContainer);
+  }
+});
+</script>
+
+</body>
+</html>
+
