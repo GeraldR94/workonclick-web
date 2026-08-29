@@ -13,6 +13,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+    /* Botón Flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 58px;
+  height: 58px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    font-size: 28px;
+  }
+}
     :root {
       --primary: #99ea15;          /* Verde lima vibrante estilo Growify */
       --primary-dark: #7ec70c;
@@ -20,7 +57,7 @@
       --dark-bg: #09110d;          /* Fondo oscuro profundo */
       --card-bg: #121c17;          /* Fondo tarjetas oscuras */
       --card-border: #1f3028;
-      --light-bg: #f8fafc;
+      --light-bg: #030609;
       --dark-text: #0b1410;
       --text-muted: #83958c;
       --text-body: #4b5563;
@@ -1519,7 +1556,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-
+<!-- Botón Flotante de WhatsApp -->
+<a href="https://wa.me/5491176768356?text=Hola%20WorkOnClick,%20quiero%20cotizar%20un%20proyecto" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Contactar por WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 </body>
 </html>
 
