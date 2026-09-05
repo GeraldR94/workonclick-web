@@ -47,21 +47,30 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header con Menú Hamburguesa -->
   <header>
     <div class="container navbar">
       <a href="#" class="logo">
         <img src="favicon.png" alt="WorkOnClick Logo" class="logo-img"> Work<span>OnClick</span>
       </a>
-      <ul class="nav-menu">
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#precios">Precios</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <a href="#hero" class="btn btn-lime">Cotizar Proyecto <i class="fa-solid fa-arrow-right"></i></a>
+
+      <!-- Botón Hamburguesa Móvil -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Menú y Botón Cotizar -->
+      <div class="nav-wrapper" id="navWrapper">
+        <ul class="nav-menu">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#hero" class="btn btn-lime nav-cta">Cotizar Proyecto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
     </div>
   </header>
 
@@ -398,7 +407,7 @@
           <div>
             <h3>Marketing Scale</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Ecosistema completo: E-Commerce y Campañas Ads.</p>
-            <div class="price-value">$499<span class="price-cents">,99</span> <span class="price-period">/ integral</span></div>
+            <div class="price-value">$499<span class="price-cents">,99</span> <span>/ integral</span></div>
             <ul class="pricing-features">
               <li><i class="fa-solid fa-check"></i> Tienda Online / Plataforma a Medida</li>
               <li><i class="fa-solid fa-check"></i> Configuración de Google & Meta Ads</li>

@@ -1,5 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Acordeón FAQ
+  // 1. Control del Menú Hamburguesa en Celulares
+  const navToggle = document.getElementById("navToggle");
+  const navWrapper = document.getElementById("navWrapper");
+
+  if (navToggle && navWrapper) {
+    // Abrir y cerrar al tocar el botón ☰
+    navToggle.addEventListener("click", () => {
+      navWrapper.classList.toggle("active");
+      const icon = navToggle.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+      }
+    });
+
+    // Cerrar automáticamente el menú al hacer clic en cualquier opción
+    navWrapper.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navWrapper.classList.remove("active");
+        const icon = navToggle.querySelector("i");
+        if (icon) {
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-xmark");
+        }
+      });
+    });
+  }
+
+  // 2. Acordeón FAQ
   document.querySelectorAll(".faq-question").forEach((item) => {
     item.addEventListener("click", () => {
       const parent = item.parentElement;
@@ -15,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. Envío AJAX para Web3Forms
+  // 3. Envío AJAX para Web3Forms
   const form = document.getElementById("contactForm");
   const result = document.getElementById("form-result");
   const submitBtn = document.getElementById("btn-submit-form");
@@ -75,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 3. Animación progresiva de números en métricas
+  // 4. Animación progresiva de números en métricas
   const counters = document.querySelectorAll(".hero-metrics .counter");
   const metricsContainer = document.querySelector(".hero-metrics");
   let animated = false;
