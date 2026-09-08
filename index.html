@@ -14,6 +14,16 @@
   <meta name="description" content="WorkOnClick - Agencia especializada en Diseño Web de Alto Rendimiento, Posicionamiento SEO Estratégico y Marketing Digital para escalar tus ventas.">
   <title>WorkOnClick | Marketing Digital, Creación Web & SEO</title>
 
+  <!-- Script de geolocalización (ejecuta antes del render) -->
+  <script src="js/geoloc.js"></script>
+
+  <!-- SEO: hreflang para variantes regionales -->
+  <link rel="alternate" hreflang="es" href="https://workonclick.com/index.html" />
+  <link rel="alternate" hreflang="es-AR" href="https://workonclick.com/index-ar.html" />
+  <link rel="alternate" hreflang="en" href="https://workonclick.com/index-us.html" />
+  <link rel="alternate" hreflang="x-default" href="https://workonclick.com/index.html" />
+  <link rel="canonical" href="https://workonclick.com/index.html" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
@@ -518,12 +528,32 @@
         </div>
       </div>
 
+      <div class="country-selector">
+        <span>🌎 Región / Idioma:</span>
+        <button onclick="changeCountry('AR')">🇦🇷 Argentina (ARS)</button>
+        <button onclick="changeCountry('GLOBAL')">🌎 Internacional (Español)</button>
+        <button onclick="changeCountry('US')">🇺🇸 United States (English)</button>
+      </div>
+
       <div class="footer-bottom">
         <p>&copy; 2026 WorkOnClick. Todos los derechos reservados.</p>
         <p style="color: var(--text-muted);">Desarrollado con alto rendimiento y SEO integrado.</p>
       </div>
     </div>
   </footer>
+
+  <script>
+    function changeCountry(code) {
+        localStorage.setItem('woc_country_manual', code);
+        sessionStorage.removeItem('woc_country_auto');
+        var routes = {
+            AR: 'index-ar.html',
+            US: 'index-us.html',
+            GLOBAL: 'index.html'
+        };
+        window.location.href = routes[code] || 'index.html';
+    }
+  </script>
 
   <!-- Botón Flotante de WhatsApp -->
   <a href="https://wa.me/5491176768356?text=Hola%20WorkOnClick,%20quiero%20cotizar%20un%20proyecto" 
